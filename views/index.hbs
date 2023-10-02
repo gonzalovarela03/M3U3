@@ -15,26 +15,25 @@
     <div id="novedades" class="col-md-5 offset-md-2 py-3 scroll_section">
         <h2>Novedades</h2>
         <ul class="lista-novedades">
-            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="images/novedades01.jpg">
-                    Nuevas recetas 1</a></li>
-            <li><a href="#"> <img src="images/novedades01.jpg"> Nuevas recetas 2</a></li>
-            <li><a href="#"> <img src="images/novedades01.jpg"> Nuevas recetas 3</a></li>
-            <li><a href="#"> <img src="images/novedades01.jpg"> Nuevas recetas 4</a></li>
-            <li><a href="#"> <img src="images/novedades01.jpg"> Nuevas recetas 5</a></li>
+            {{#each novedades}}
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{id}}"> <img src="images/novedades01.jpg">{{titulo}}</a></li>
+            {{/each}}        
         </ul>
     </div>
     <!--fin de novedades -->
 
     <!--inicio de modal -->
-    <div class="modal fade" tabindex="-1" id="exampleModal">
+    {{#each novedades}}
+    <div class="modal fade" tabindex="-1" id="exampleModal{{id}}">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">{{titulo}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                    <h2>{{subtitulo}}</h2>
+                    <p>{{cuerpo}}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -43,6 +42,7 @@
             </div>
         </div>
     </div>
+    {{/each}}
     <!--fin  de modal -->
     <!--inicio testimonios -->
     <div class="col-md-3 my-3">
